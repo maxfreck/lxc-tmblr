@@ -12,7 +12,7 @@ type Container struct {
 }
 
 type AppConfig struct {
-	Hello      string
+	Socket     string
 	Containers map[string]Container
 }
 
