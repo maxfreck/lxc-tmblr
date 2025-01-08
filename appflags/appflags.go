@@ -9,9 +9,9 @@ import (
 type arrayFlags []string
 
 type AppFlags struct {
-	start              arrayFlags
-	stop               arrayFlags
-	ignoreDependencies bool
+	Start              arrayFlags
+	Stop               arrayFlags
+	IgnoreDependencies bool
 }
 
 // String is an implementation of the flag.Value interface
@@ -29,10 +29,10 @@ func (i *arrayFlags) Set(value string) error {
 func GetAppFlags() *AppFlags {
 	var flags AppFlags
 
-	flag.Var(&flags.start, "start", "Start the container with all the dependencies")
-	flag.Var(&flags.stop, "stop", "Stop the container with all the dependencies")
-	flag.BoolVar(&flags.ignoreDependencies, "i", flags.ignoreDependencies, "Ignore dependencies and work only with specified containers")
-	flag.BoolVar(&flags.ignoreDependencies, "no-dependencies", flags.ignoreDependencies, "Ignore dependencies and work only with specified containers")
+	flag.Var(&flags.Start, "start", "Start the container with all the dependencies")
+	flag.Var(&flags.Stop, "stop", "Stop the container with all the dependencies")
+	flag.BoolVar(&flags.IgnoreDependencies, "i", flags.IgnoreDependencies, "Ignore dependencies and work only with specified containers")
+	flag.BoolVar(&flags.IgnoreDependencies, "no-dependencies", flags.IgnoreDependencies, "Ignore dependencies and work only with specified containers")
 
 	flag.Parse()
 
