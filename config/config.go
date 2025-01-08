@@ -25,6 +25,8 @@ func GetAppConfig() *AppConfig {
 	viper.AddConfigPath("$HOME/.config/lxc-tmblr/")
 	viper.AddConfigPath(".")
 
+	viper.SetDefault("socket", "/var/snap/lxd/common/lxd/unix.socket")
+
 	err1 := viper.ReadInConfig()
 	if err1 != nil {
 		panic(fmt.Errorf("fatal error config file: %w", err1))
@@ -33,6 +35,13 @@ func GetAppConfig() *AppConfig {
 	err2 := viper.Unmarshal(&Config)
 	if err2 != nil {
 		panic(fmt.Errorf("unable to decode into struct: %w", err2))
+	}
+
+	for key, item := range Config.Containers {
+		if item.Root == "" {
+			item.Root = key
+			Config.Containers[key] = item
+		}
 	}
 
 	return &Config
