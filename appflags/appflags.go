@@ -26,7 +26,7 @@ func (i *arrayFlags) Set(value string) error {
 }
 
 // Parses command line args
-func GetAppFlags() AppFlags {
+func GetAppFlags() *AppFlags {
 	var flags AppFlags
 
 	flag.Var(&flags.start, "start", "Start the container with all the dependencies")
@@ -36,7 +36,7 @@ func GetAppFlags() AppFlags {
 
 	flag.Parse()
 
-	return flags
+	return &flags
 }
 
 // Prints program usage info
