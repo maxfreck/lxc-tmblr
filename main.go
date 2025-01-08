@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"lxc-tmblr/appflags"
+	"lxc-tmblr/config"
 	"os"
 )
 
@@ -15,6 +16,8 @@ func main() {
 
 	flag.Usage = appflags.ShowUsage
 	flags := appflags.GetAppFlags()
+	config := config.GetAppConfig()
 
 	fmt.Println(flags)
+	fmt.Println(config.Containers["php7-maria"])
 }
