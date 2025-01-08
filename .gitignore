@@ -7,7 +7,7 @@
 *.dll
 *.so
 *.dylib
-lxc-tmblr
+
 
 # Test binary, built with `go test -c`
 *.test
@@ -24,3 +24,7 @@ go.work.sum
 
 # env file
 .env
+
+# other files
+.vscode
+lxc-tmblr
