@@ -2,9 +2,9 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"lxc-tmblr/appflags"
 	"lxc-tmblr/config"
+	"lxc-tmblr/lxd"
 	"os"
 )
 
@@ -15,9 +15,7 @@ func main() {
 	}
 
 	flag.Usage = appflags.ShowUsage
-	flags := appflags.GetAppFlags()
-	config := config.GetAppConfig()
 
-	fmt.Println(flags)
-	fmt.Println(config.Containers["php7-maria"])
+	processor := lxd.NewLxdProcessor(appflags.GetAppFlags(), config.GetAppConfig())
+	processor.Process()
 }
