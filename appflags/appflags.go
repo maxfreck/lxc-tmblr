@@ -42,7 +42,7 @@ func GetAppFlags() *AppFlags {
 // Prints program usage info
 func ShowUsage() {
 	fmt.Println("Description:")
-	fmt.Println("  A simple LXC orchestrator that allows you to start or stop containers based on their dependencies")
+	fmt.Println("  An LXC orchestrator that allows you to start or stop containers based on their dependencies")
 	fmt.Println()
 
 	fmt.Println("Usage:")

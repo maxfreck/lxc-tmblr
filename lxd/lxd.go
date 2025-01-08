@@ -58,9 +58,6 @@ func (l LxdProcessor) Process() {
 		}
 	}
 
-	fmt.Println(stopInstances)
-	fmt.Println(startInstances)
-
 	if len(stopInstances) > 0 {
 		l.stop(stopInstances)
 	}
