@@ -27,7 +27,7 @@ lxc-tmblr [commands]
 Start `foo`, `bar` and stop `baz`
 
 ```sh
-    lxc-tmblr -start foo -start bar -stop baz
+lxc-tmblr -start foo -start bar -stop baz
 ```
 
 ## Defining dependencies
