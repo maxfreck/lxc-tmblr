@@ -45,7 +45,7 @@ socket: /var/snap/lxd/common/lxd/unix.socket
 
 # A list of containers with dependencies.
 # root is the actual name of the container. If root is not specified,
-# the actual name of the container is equal to the name of the partition.
+# the actual name of the container is equal to the name of the section.
 #
 # dependencies are the names of containers or sections that the current
 # container depends on.
