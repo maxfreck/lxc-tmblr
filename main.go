@@ -16,6 +16,5 @@ func main() {
 
 	flag.Usage = appflags.ShowUsage
 
-	processor := lxd.NewLxdProcessor(appflags.GetAppFlags(), config.GetAppConfig())
-	processor.Process()
+	lxd.NewLxdProcessor(appflags.GetAppFlags(), config.GetAppConfig()).Process()
 }

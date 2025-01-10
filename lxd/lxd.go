@@ -23,7 +23,7 @@ func NewLxdProcessor(flags *appflags.AppFlags, config *config.AppConfig) *LxdPro
 
 	connection, err := incus.ConnectIncusUnix(config.Socket, nil)
 	if err != nil {
-		panic(fmt.Errorf("unable to decode into struct: %w", err))
+		panic(fmt.Errorf("unable to connect to incus: %w", err))
 	}
 
 	processor.connection = connection
@@ -96,21 +96,6 @@ func (l LxdProcessor) nameToRoot(name string) string {
 	}
 
 	return name
-}
-
-func (l LxdProcessor) getInstances() map[string]api.Instance {
-	instancesMap := make(map[string]api.Instance)
-
-	instances, err := l.connection.GetInstancesAllProjects("")
-	if err != nil {
-		panic(fmt.Errorf("unable to get instances: %w", err))
-	}
-
-	for _, v := range instances {
-		instancesMap[v.Name] = v
-	}
-
-	return instancesMap
 }
 
 func (l LxdProcessor) stop(instances []string) {
